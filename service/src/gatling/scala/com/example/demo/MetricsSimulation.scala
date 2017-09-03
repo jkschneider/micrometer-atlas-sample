@@ -8,9 +8,12 @@ import scala.concurrent.duration._
 
 class MetricsSimulation extends Simulation {
   val httpProtocol = http.baseURL("http://localhost:8080")
+    .shareConnections
+    .disableCaching
 
-  val scn = scenario("load test the roulette API in the demo app")
+  val scn = scenario("load test the API in the demo app")
     .exec(http("roulette").get("/api/roulette").check(status in (200, 500)))
+    .exec(http("cache").get("/api/cache").check(status in 200))
 
   // see http://gatling.io/docs/current/general/simulation_setup/#simulation-setup for other options
 

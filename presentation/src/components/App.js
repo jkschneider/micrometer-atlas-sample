@@ -58,6 +58,13 @@ export default class App extends Component {
           </div>
           <div>
             <Slide
+              title="Cache Monitoring"
+              stackLang="name,controllerCacheRequests,:eq,(,result,),:by,:stack"
+              queryParams={defaultQuery}
+            />
+          </div>
+          <div>
+            <Slide
               title="Multi-Y"
               stackLang={
                 stripMargin`
