@@ -25,7 +25,7 @@ class RouletteController {
 	@Timed(percentiles = true)
 	public String roulette() {
 		if(boomFrequency * 100 <= r.nextInt(101))
-			return "Phew... I survived!";
-		else throw new RuntimeException("Boom");
+			return "Success";
+		else throw new RuntimeException("Failure");
 	}
 }
